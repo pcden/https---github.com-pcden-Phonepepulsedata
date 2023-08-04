@@ -1,6 +1,6 @@
 import csv
 import mysql.connector
-
+#d
 # Database connection details
 db_host = '127.0.0.1'
 db_user = 'root'
