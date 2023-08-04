@@ -25,11 +25,11 @@ st.sidebar.header(":wave: :violet[**Hello! Welcome to the dashboard**]")
 # Reference Syntax - Repo.clone_from("Clone Url", "Your working directory")
 
 # Creating connection with mysql workbench
-mydb = sql.connect(host="127.0.0.1",
+mydb = sql.connect(host="localhost",
                    user="root",
-                   password="12345",
-                   database= "phonepe_pulse",
-                   port = "3307"
+                   password="Denjerry&7",
+                   database= "phonepepulse",
+                   port = "3306"
                   )
 mycursor = mydb.cursor(buffered=True)
 
