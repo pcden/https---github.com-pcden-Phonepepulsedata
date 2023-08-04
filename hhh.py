@@ -2,10 +2,10 @@ import csv
 import mysql.connector
 #d
 # Database connection details
-db_host = '127.0.0.1'
+db_host = 'localhost'
 db_user = 'root'
-db_password = '1234'
-db_name = 'phonepe_pulse'
+db_password = 'Denjerry&7'
+db_name = 'phonepepulse'
 h = '3307'
 
 # CSV file path

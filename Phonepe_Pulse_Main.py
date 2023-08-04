@@ -1,4 +1,6 @@
 # Importing Libraries
+import sys
+sys.path.append("/opt/anaconda3/lib/python3.11/site-packages")
 import pandas as pd
 import mysql.connector as sql
 import streamlit as st
@@ -9,7 +11,7 @@ from streamlit_option_menu import option_menu
 from PIL import Image
 
 # Setting up page configuration
-icon = Image.open(r"C:\Users\samue\Downloads\bus attrocates\Phonepe_Pulse_Data_Visualization-main\Phonepe_Pulse_Data_Visualization\Data\ICN.png")
+icon = Image.open(r"D:\Dimpu\ProjectWorks\Python\PhonepePulseData\Data\ICN.png")
 st.set_page_config(page_title= "Phonepe Pulse Data Visualization | By Samuel Solomon",
                    page_icon= icon,
                    layout= "wide",
@@ -196,7 +198,7 @@ if selected == "Explore Data":
             st.markdown("## :violet[Overall State Data - Transactions Amount]")
             mycursor.execute(f"select state, sum(count) as Total_Transactions, sum(amount) as Total_amount from map_trans where year = {Year} and quarter = {Quarter} group by state order by state")
             df1 = pd.DataFrame(mycursor.fetchall(),columns= ['State', 'Total_Transactions', 'Total_amount'])
-            df2 = pd.read_csv(r'C:\Users\samue\Downloads\bus attrocates\Phonepe_Pulse_Data_Visualization-main\Phonepe_Pulse_Data_Visualization\Data\Statenames.csv')
+            df2 = pd.read_csv(r'D:\Dimpu\ProjectWorks\Python\PhonepePulseData\Data\Statenames.csv')
             df1.State = df2
 
             fig = px.choropleth(df1,geojson="https://gist.githubusercontent.com/jbrobst/56c13bbbf9d97d187fea01ca62ea5112/raw/e388c4cae20aa53cb5090210a42ebb9b765c0a36/india_states.geojson",
@@ -214,7 +216,7 @@ if selected == "Explore Data":
             st.markdown("## :violet[Overall State Data - Transactions Count]")
             mycursor.execute(f"select state, sum(count) as Total_Transactions, sum(amount) as Total_amount from map_trans where year = {Year} and quarter = {Quarter} group by state order by state")
             df1 = pd.DataFrame(mycursor.fetchall(),columns= ['State', 'Total_Transactions', 'Total_amount'])
-            df2 = pd.read_csv(r'C:\Users\samue\Downloads\bus attrocates\Phonepe_Pulse_Data_Visualization-main\Phonepe_Pulse_Data_Visualization\Data\Statenames.csv')
+            df2 = pd.read_csv(r'D:\Dimpu\ProjectWorks\Python\PhonepePulseData\Data\Statenames.csv')
             df1.Total_Transactions = df1.Total_Transactions.astype(int)
             df1.State = df2
 
@@ -276,7 +278,7 @@ if selected == "Explore Data":
         st.markdown("## :violet[Overall State Data - User App opening frequency]")
         mycursor.execute(f"select state, sum(RegisteredUser) as Total_Users, sum(AppOpens) as Total_Appopens from map_user where year = {Year} and quarter = {Quarter} group by state order by state")
         df1 = pd.DataFrame(mycursor.fetchall(), columns=['State', 'Total_Users','Total_Appopens'])
-        df2 = pd.read_csv(r'C:\Users\samue\Downloads\bus attrocates\Phonepe_Pulse_Data_Visualization-main\Phonepe_Pulse_Data_Visualization\Data\Statenames.csv')
+        df2 = pd.read_csv(r'D:\Dimpu\ProjectWorks\Python\PhonepePulseData\Data\Statenames.csv')
         df1.Total_Appopens = df1.Total_Appopens.astype(float)
         df1.State = df2
         
